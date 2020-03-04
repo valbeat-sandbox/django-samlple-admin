@@ -2,10 +2,10 @@ FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /app
 WORKDIR /app
 
-ADD requirements.txt /app/
+ADD ./src/ /app/src/
+
+WORKDIR /app/src/
 RUN pip install -r requirements.txt
 
-ADD . /app/
