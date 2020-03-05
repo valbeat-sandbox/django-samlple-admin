@@ -1,1 +1,29 @@
-It Works!!
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset="utf-8">
+    <title>Persons</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>性別</th>
+        <th>誕生日</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for member in members %}
+        <tr>
+            <td>{{member.id}}</td>
+            <td>{{member.person.name}}</td>
+            <td>{{member.person.sex}}</td>
+            <td>{{member.person.birthday}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

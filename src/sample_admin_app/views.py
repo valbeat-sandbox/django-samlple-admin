@@ -8,4 +8,6 @@ class PersonsView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = super(PersonsView, self).get_context_data(**kwargs)
+        members = Member.objects.all()
+        context['members'] = members
         return render(self.request, self.template_name, context)
