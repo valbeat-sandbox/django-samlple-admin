@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser
+from sample_admin_app.managers import PersonManager
 
-class Person(models.Model):
+class Person(AbstractBaseUser):
     """
     人
      * 人の情報を格納する。
@@ -13,10 +15,16 @@ class Person(models.Model):
     MAN = 0
     WOMAN = 1
 
+    objects = PersonManager()
+
+    identifier = models.CharField(max_length=64, unique=True, blank=False)
     name = models.CharField(max_length=128)
     birthday = models.DateTimeField()
     sex = models.IntegerField(editable=False)
     email = models.EmailField()
+
+    is_active = models.BooleanField(default=True)
+    USERNAME_FIELD = 'identifier'
 
 class Manager(models.Model):
     """

@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include,url
 from django.conf import settings
-import sample_admin_app.views as sample_admin_app_views
+import sample_admin_app.views as sample_admin_app_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('persons/', sample_admin_app_views.PersonsView.as_view())
+    path('persons/', sample_admin_app_view.PersonsView.as_view()),
+    path('login/', sample_admin_app_view.CustomLoginView.as_view()),
 ]
 
 if settings.DEBUG:

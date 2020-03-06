@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Log In</title>
+</head>
+<body>
+<div class="container">
+    <form role="form" action="/login/" method="post">{% csrf_token %}
+        <fieldset>
+            <div>
+                <input placeholder="Username" name="username" autofocus>
+            </div>
+            <div>
+                <input placeholder="Password" name="password" type="password" value="">
+            </div>
+            <input type="submit" value="Login" />
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
